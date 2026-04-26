@@ -1,0 +1,73 @@
+@import '@fontsource/heebo/400.css';
+@import '@fontsource/heebo/500.css';
+@import '@fontsource/heebo/700.css';
+@import '@fontsource/heebo/900.css';
+
+:root {
+  --color-bg-primary: #1a1a1d;
+  --color-bg-secondary: #2a2a2e;
+  --color-bg-card: #242428;
+  --color-orange: #d4742c;
+  --color-orange-light: #e8934e;
+  --color-orange-glow: rgba(212, 116, 44, 0.15);
+  --color-text-primary: #e8e6e3;
+  --color-text-secondary: #9a9898;
+  --color-text-muted: #6b6969;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --font-family: 'Heebo', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  direction: rtl;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--color-orange);
+  color: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-orange);
+}
