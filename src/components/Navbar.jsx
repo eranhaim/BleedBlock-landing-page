@@ -28,7 +28,7 @@ export default function Navbar() {
         <li><a href="#contact">צור קשר</a></li>
       </ul>
 
-      <button className="navbar-cta">בואו נדבר</button>
+      <a href="#contact" className="navbar-cta">בואו נדבר</a>
     </motion.nav>
   )
 }

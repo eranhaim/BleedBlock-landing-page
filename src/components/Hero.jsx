@@ -83,8 +83,8 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <button className="btn-primary">גלו את המוצר</button>
-          <button className="btn-secondary">צפו בסרטון</button>
+          <a href="#product" className="btn-primary">גלו את המוצר</a>
+          <a href="#video" className="btn-secondary">צפו בסרטון</a>
         </motion.div>
 
         <motion.div

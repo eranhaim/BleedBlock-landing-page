@@ -1,8 +1,11 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 export default function VideoSection() {
   const ref = useRef(null)
+  const videoRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
@@ -10,6 +13,13 @@ export default function VideoSection() {
 
   const scale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
   const opacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play()
+      setIsPlaying(true)
+    }
+  }
 
   return (
     <section className="video-section" id="video" ref={ref}>
@@ -31,14 +41,24 @@ export default function VideoSection() {
       <motion.div className="video-container" style={{ scale, opacity }}>
         <div className="video-frame">
           <div className="video-glow" />
-          <div className="video-placeholder">
-            <div className="video-play-btn">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M8 5v14l11-7z" />
-              </svg>
+          <video
+            ref={videoRef}
+            className="video-player"
+            controls={isPlaying}
+            onEnded={() => setIsPlaying(false)}
+            playsInline
+          >
+            <source src="/product-video.mp4" type="video/mp4" />
+          </video>
+          {!isPlaying && (
+            <div className="video-overlay" onClick={handlePlay}>
+              <div className="video-play-btn">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
             </div>
-            <p>הסרטון יתווסף כאן בקרוב</p>
-          </div>
+          )}
         </div>
       </motion.div>
     </section>
